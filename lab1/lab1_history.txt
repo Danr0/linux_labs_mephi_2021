@@ -1,0 +1,29 @@
+    1  exit
+    2  ldd /bin/login | grep pam
+    3  ls -l /lib64/libpam*
+    4  ls -l /lib64/security/
+    5  nano /etc/pam.d/system-auth
+    6  nano /etc/pam.d/su
+    7  nano /etc/pam.d/su
+    8  nano /etc/pam.d/su
+    9  nano /etc/pam.d/su
+   10  nano /etc/pam.d/su
+   11  useradd -G wheel -p password -s /bin/bash test2
+   12  nano /etc/pam.d/su
+   13  nano /etc/pam.d/su
+   14  cat /etc/securetty
+   15  touch /etc/securetty
+   16  nano /etc/pam.d/login
+   17  nano /etc/pam.d/login
+   18  man pam_pwquality
+   19  nano /etc/security/pwquality.conf
+   20  nano /etc/pam.d/system-auth
+   21  nano /etc/security/pwquality.conf
+   22  nano /etc/pam.d/system-auth
+   23  man pam_limits
+   24  nano /etc/security/limits.conf
+   25  sudo passwd test2
+   26  sudo passwd test2
+   27  nano /etc/security/limits.conf
+   28  wget https://raw.githubusercontent.com/linux-pam/linux-pam/master/examples/check_user.c
+   29  history > lab1_history.txt
