@@ -1,0 +1,86 @@
+    1  ldd /bin/ls | grep selinux
+    2  ldd /bin/cat | grep selinux
+    3  ls -l /etc/selinux/
+    4  less /etc/selinux/semanage.conf 
+    5  ls -l /etc/selinux/targeted/
+    6  less /etc/selinux/targeted/policy/policy.32 
+    7  less /etc/selinux/targeted/seusers 
+    8  less /etc/selinux/targeted/setrans.conf 
+    9  id -Z
+   10  ls -Z /etc/passwd /etc/group /etc/shadow
+   11  ls -Z /etc/login.defs /etc/sudoers
+   12  ls -Z /usr/bin/passwd
+   13   ls -Z /usr/sbin/useradd 
+   14  getfattr -n security.selinux /etc/passwd
+   15  getfattr -n security.selinux /etc/passwd
+   16  ps Zaux
+   17  ls /proc/$$/attr
+   18  ps Z $(pgrep passwd)
+   19  netstat -tnlpZ
+   20  sestatus
+   21  getenforce
+   22  cat /sys/fs/selinux/enforce
+   23  cat /etc/selinux/config
+   24  getsebool -a | grep httpd
+   25  seinfo 
+   26  seinfo 
+   27  seinfo -cfile -x
+   28  seinfo --class | grep file
+   29  seinfo --class file -x
+   30  seinfo --common file -x
+   31  seinfo --common dir -x
+   32  seinfo --common blk_file -x
+   33  seinfo --class | grep dir
+   34  seinfo --class dir -x
+   35  seinfo --class blk_file -x
+   36  seinfo --class chr_file -x
+   37  seinfo --class lnk_file -x
+   38  seinfo --class fifo_file -x
+   39  seinfo --class sock_file -x
+   40  seinfo --class filesystem -x
+   41  grep 'httpd_.*_t' /etc/selinux/targeted/contexts/files/file_contexts
+   42  semanage fcontext -l
+   43  cd /var/www/openshift/console/tmp
+   44  cd /var/svn
+   45  cd tmp
+   46  cd /tmp
+   47  touch a
+   48  ls -Z /tmp/
+   49  ls -Z /tmp/a 
+   50  cp a /
+   51  ls -Z /a 
+   52  rm /a
+   53  mv a /
+   54  ls -Z /a 
+   55  mount server:/export /local/mount/point -o \ context="system_u:object_r:httpd_sys_content_t:s0"
+   56  mount server:/export /local/mount/point -o context="system_u:object_r:httpd_sys_content_t:s0"
+   57  ls -Z a
+   58  rm /a
+   59  touch a
+   60  ls -Z a
+   61  mkdir web
+   62  ls -Z web/
+   63  ls -Z web
+   64  ls -dZ web
+   65  chcon -R -t httpd_sys_content_t web/
+   66  ls -dZ web
+   67  /usr/sbin/semanage fcontext -a -t httpd_sys_content_t "/tmp/web(/.*)?"
+   68  touch web/a
+   69  ls -Z web/a
+   70   /sbin/restorecon -v web/a 
+   71   /sbin/restorecon -v web
+   72  ls -Zd web/
+   73  ls -Zd web/a
+   74  ls -Z web/a
+   75  sesearch -T -s httpd_t -t var_log_t
+   76  sesearch -T -s httpd_t -t tmp_t
+   77  sesearch --allow --source passwd_t --target shadow_t --class file
+   78  sesearch -A -s passwd_t -t passwd_exec_t -c file
+   79  sesearch -A -s unconfined_t -t passwd_exec_t -c file
+   80  sesearch -A -s unconfined_t -t passwd_t -c process
+   81  sesearch --type_trans -s unconfined_t -t passwd_exec_t
+   82  seinfo | grep -E '(dontaudit|allow)'
+   83  ausearch -m avc -ts recent
+   84  dontaudit
+   85  audit2allow
+   86  history > lab_selinux.txt
