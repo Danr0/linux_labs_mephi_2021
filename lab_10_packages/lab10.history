@@ -1,0 +1,167 @@
+    1  yum repolist
+    2  yum grouplist
+    3  rpm -qa | less
+    4  rpm -qa | wc -l
+    5  yum list installed | wc -l
+    6  rpm -qa | grep gnuplot
+    7  yum search gnuplot
+    8  yum info gnuplot
+    9  yum install gnuplot
+   10  rpm -qi gnuplot
+   11  yum list installed gnuplot
+   12  rpm -ql gnuplot
+   13  rpm -qf /usr/bin/gnuplot-wx
+   14  yum deplist gnuplot
+   15   rpm -e gnuplot-common
+   16  yum remove gnuplot-common
+   17  nano /etc/yum.repos.d/yandex.repo
+   18  yum clean all
+   19  yum repolist yandex
+   20  yum install @development-tools rpmdev* rpm-sign
+   21  yum install @development-tools rpmdev* rpm-sign
+   22  cd
+   23  cd -
+   24  rpmdev-setuptree
+   25  ls
+   26  ls -la 
+   27  ls -la ~
+   28  cd ~/rpmbuild/SOURCES
+   29  mkdir b18-505-16-1.0
+   30  cd b18-505-16-1.0/
+   31  nano b18-505-16
+   32  chmod +x b18-505-16 
+   33  cd ..
+   34  tar -cvzf b18-505-16-1.0.tar.gz  b18-505-16-1.0 
+   35  ls
+   36  cd ../SPECS/
+   37  b18-505-16.spec
+   38  nano b18-505-16.spec
+   39  nano b18-505-16.spec
+   40  rpmbuild -ba b18-505-16.spec 
+   41  nano b18-505-16.spec
+   42  rpmbuild -ba b18-505-16.spec 
+   43  ls ../RPMS/noarch/
+   44  nano b18-505-16.spec 
+   45  rpmbuild -ba b18-505-16.spec 
+   46  cd ..
+   47  ls
+   48  cd SOURCES/
+   49  ls
+   50  mkdir c-b18-505-16-1.0
+   51  cd c-b18-505-16-1.0/
+   52  nano c-b18-505-16.c
+   53  gcc c-b18-505-16.c 
+   54  ./a.out 
+   55  rm a.out 
+   56  ls
+   57  cd ..
+   58  ls
+   59  tar cvfz c-b18-505-16-1.0.tar.gz c-b18-505-16-1.0
+   60  cd ../SPECS/
+   61  nano c-b18-505-16.spec
+   62  nano c-b18-505-16.spec
+   63  rpmbuild -ba c-b18-505-16.spec 
+   64  nano c-b18-505-16.spec
+   65  ls ../SOURCES/c-b18-505-16-1.0
+   66  nano c-b18-505-16.spec
+   67  nano c-b18-505-16.spec
+   68  ls ../RPMS/
+   69  rpmbuild -ba -D 'debug_package %{nil}' c-b18-505-16.spec 
+   70  ls ../RPMS/
+   71  ls ../RPMS/x86_64/
+   72  nano c-b18-505-16.spec 
+   73  nano b18-505-16.spec 
+   74  nano b18-505-16.spec 
+   75  nano c-b18-505-16.spec 
+   76  cd ..
+   77  ls
+   78  cd RPMS/
+   79  ls
+   80  cd x86_64/
+   81  ls
+   82  yum localinstall c-b18-505-16-1.0-1.fc32.x86_64.rpm 
+   83  yum search b18
+   84  yum remove c-b18-505-16.x86_64
+   85  cd ../../SPECS/
+   86  ls
+   87  rpmbuild -ba c-b18-505-16.spec 
+   88  rpmbuild -ba -D 'debug_package %{nil}' c-b18-505-16.spec 
+   89  cd ../RPMS/x86_64/
+   90  ls
+   91  yum localinstall c-b18-505-16-1.0-1.fc32.x86_64.rpm 
+   92  cd ../noarch/
+   93  yum localinstall b18-505-16-1.0-1.fc32.noarch.rpm 
+   94  cd ../x86_64/
+   95  yum localinstall c-b18-505-16-1.0-1.fc32.x86_64.rpm 
+   96  pwd
+   97  createrepo /root/rpmbuild/RPMS/x86_64
+   98  yum delete c-b18-505-16-1.0-1.fc32.x86_64.rpm 
+   99  yum delete c-b18-505-16-1.0-1
+  100  yum remove c-b18-505-16.x86_64
+  101  yum remove b18-505-16.x86_64
+  102  createrepo /root/rpmbuild/RPMS/noarch/
+  103  nano  /etc/yum.repos.d/
+  104  nano  /etc/yum.repos.d/custom.repo
+  105  pwd
+  106  ls ../noarch/
+  107  nano  /etc/yum.repos.d/custom.repo
+  108  yum repolist custom
+  109  ls -la
+  110  rm -rf repodata/
+  111  cd ../noarch/
+  112  ls -la
+  113  rm -rf repodata/
+  114  cd
+  115  gpg2 --gen-key
+  116  yum install heveged
+  117  systemctl enable haveged
+  118  yum install haveged
+  119  systemctl enable haveged
+  120  systemctl start haveged
+  121  gpg2 --gen-key
+  122  gpg2 --export -a 'Danr0'  > ~/rpmbuild/RPM-GPG-KEY-Danr0
+  123  nano ~/.rpmmacros
+  124  rpm --addsign ~/rpmbuild/RPMS/*/*.rpm
+  125  yum install createrepo
+  126  mkdir -p /var/www/html/myrepo
+  127  cp ~/rpmbuild/RPMS/*/*.rpm /var/www/html/myrepo
+  128  cp ~/rpmbuild/RPM-GPG-KEY-Ivanov-Ivan /var/www/html/myrepo
+  129  sudo cp ~/rpmbuild/RPM-GPG-KEY-Danr0 /var/www/html/myrepo
+  130  createrepo -v /var/www/html/myrepo
+  131  nano /etc/yum.repos.d/my.repo
+  132  yum install -y httpd
+  133  systemctl enable httpd.service
+  134  systemctl start httpd.service
+  135  yum repolist
+  136  yum install c-b18-505-16 b18-505-16
+  137  ls rpmbuild/RPMS/noarch/
+  138  yum install b18-505-16-1.0 c-b18-505-16-1.0
+  139  rm /etc/yum.repos.d/custom.repo
+  140  nano /etc/yum.repos.d/my.repo
+  141  yum install b18-505-16-1.0 c-b18-505-16-1.0
+  142  nano /etc/yum.repos.d/my.repo
+  143  yum install b18-505-16-1.0 c-b18-505-16-1.0
+  144  cat /etc/yum.repos.d/my.repo
+  145  ls
+  146  cd
+  147  ls
+  148  cd
+  149  cd /home/
+  150  ls
+  151  cd osboxes/linux_labs_mephi_2021/lab_10_packages/
+  152  ls
+  153  systemctl stop httpd.service
+  154  cp /var/www/html/myrepo/* .
+  155  cp -r /var/www/html/myrepo .
+  156  ls
+  157  ls
+  158  ls myrepo/
+  159  ls
+  160  rm *.rpm
+  161  ls
+  162  rm RPM-GPG-KEY-Danr0 
+  163  ls
+  164  cd myrepo/
+  165  ls
+  166  cd ..
+  167  history > lab10.history

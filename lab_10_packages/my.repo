@@ -1,0 +1,5 @@
+[myrepo]
+name=my-repo
+baseurl=file:///var/www/html/myrepo
+enabled=1
+gpgkey=file:///var/www/html/myrepo/RPM-GPG-KEY-Danr0
