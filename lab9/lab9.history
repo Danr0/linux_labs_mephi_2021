@@ -1,0 +1,98 @@
+    1  exit
+    2  su test2
+    3  exit
+    4  su test2
+    5  exit
+    6  su test2
+    7  exit
+    8  su test2
+    9  exit
+   10  ls
+   11  ps xaf
+   12  ps xawf -eo pid,user,cgroup,args
+   13  systemd-cgls
+   14  ls -l /usr/lib/systemd/system/
+   15  ls -l /run/systemd/system/
+   16  ls -l /etc/systemd/system/
+   17  systemctl -t help
+   18  systemctl status
+   19  systemctl --type=service
+   20  systemctl status auditd.service 
+   21  systemctl is-active auditd.service
+   22  systemctl is-enabled auditd.service
+   23  systemctl list-dependencies --after auditd.service 
+   24  systemctl list-dependencies --before auditd.service 
+   25  systemctl list-units --type=service
+   26  systemctl list-units --type=service --all
+   27  systemctl list-units --type=socket --all
+   28  systemctl list-unit-files --type=service
+   29  systemctl --failed --type=service
+   30  systemctl status httpd.service
+   31  curl 127.0.0.1
+   32  systemctl start httpd.service
+   33  systemctl status httpd.service
+   34  curl http://127.0.0.1
+   35  systemctl status httpd.service
+   36  systemctl restart httpd.service
+   37  systemctl status httpd.service
+   38  systemctl stop httpd.service
+   39  systemctl enable httpd.service
+   40  systemctl status httpd.service 
+   41  systemctl start httpd.service 
+   42  systemctl status httpd.service 
+   43  systemctl stop httpd.service 
+   44  systemctl disable httpd.service
+   45  systemctl mask httpd.service
+   46  systemctl status httpd.service 
+   47  systemctl start httpd.service
+   48  systemctl unmask httpd.service
+   49  systemctl status httpd.service
+   50  systemctl list-units --type=target
+   51  systemctl list-units --type=target --all
+   52  systemctl get-default 
+   53  ls -l /etc/systemd/system/default.target
+   54  ls -l /etc/systemd/system/timers.target
+   55  systemctl set-default multi-user.target
+   56  systemctl isolate multi-user.target
+   57  ls
+   58  cd linux_labs_mephi_2021/
+   59  ls
+   60  ls lab1/
+   61  pwd
+   62  ls
+   63  mkdir 7_processes
+   64  cd 7_processes/
+   65  ls
+   66  cd ..
+   67  ls
+   68  git add .
+   69  git commit -m "lab 7, refactor dir names"
+   70  git push
+   71  ls
+   72  systemctl set-default graphical.target 
+   73  systemctl isolate graphical.target 
+   74  history 
+   75  history > lab9.txt
+   76  hostnamectl 
+   77  timedatectl 
+   78  localectl 
+   79  loginctl 
+   80  loginctl session-status 2
+   81  loginctl session-status 1
+   82  loginctl session-status 0
+   83  loginctl session-status 6
+   84  loginctl show-user root
+   85  loginctl show-user osboxes
+   86  nano my_test.service
+   87  ls -lZ mephi.service 
+   88  cp my_test.service /usr/lib/systemd/system/
+   89  journalctl -b
+   90  ausearch -m avc -ts recent
+   91  systemctl start my_test.service 
+   92  journalctl -u my_test.service 
+   93  nano my_test.path
+   94  systemctl enable my_test.path
+   95  cp my_test.path /etc/systemd/system/multi-user.target.wants/
+   96  systemctl enable my_test.path
+   97  systemctl start my_test.path
+   98  history > lab9.txt 

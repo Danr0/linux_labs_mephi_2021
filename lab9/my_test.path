@@ -1,0 +1,8 @@
+[Unit]
+Description="Check for tmp file in /tmp"
+After=sshd.service
+[Path]
+PathExists=/tmp/test.file
+Unit=mephi.service
+[Install]
+WantedBy=multi-user.target
